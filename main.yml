@@ -1,0 +1,33 @@
+---
+- name: Create user folder
+  file:
+    path: "{{ folder_path }}"
+    state: directory
+    owner: "{{ username }}"
+    group: "{{ username }}"
+    mode: '0777'
+
+- name: "Clone a github repository"
+  git:
+    repo: https://github.com/SDaiva/Final_assignment_Team2
+    dest: "{{ folder_path }}"
+
+
+ #- name: "Clone a github repository"
+  #git:
+   # repo: https://github.com/SDaiva/Final_assignment_Team2
+    #dest: /home/ansible_git_clone/gitclone
+    #clone: yes
+    #update: yes
+
+
+
+
+#- hosts: mysql
+ #   tasks:
+  #  name: Download MySQL dump file from GitHub repository
+   #         - get_url:
+    #        url: https://github.com/SDaiva/Final_assignment_Team2
+     #       dest: "/path/to/local/directory/backup_file1.sql"
+      #
+      # Replace your_mysql_server with the name of the MySQL server where you want to restore the database, and /path/to/local/directory/ with the path to the directory on the server where you want to store the dump file.
